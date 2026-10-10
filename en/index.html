@@ -23,58 +23,96 @@ code{background:var(--panel);border:1px solid var(--line);border-radius:5px;padd
 <main>
 <a class="lang" href="../">Türkçe</a>
 <h1>AquaMed — Privacy Policy</h1>
-<p>Last updated: 24 September 2026</p>
-<p>AquaMed ("the app") helps you keep track of your water intake and medication times. This policy explains what information the app handles and where it is kept.</p>
+<p>Last updated: [PUBLICATION DATE]</p>
+<p>AquaMed ("the app") helps you keep track of your water intake and medication times. This policy explains what information the app handles, where it is kept and who it is shared with. Developer and data controller: zepul (contact: <a href="mailto:dalezepul@gmail.com">dalezepul@gmail.com</a>).</p>
 <h2>In short</h2>
 <ul>
-<li><strong>No account.</strong> You don't need to sign up or log in.</li>
-<li><strong>Your data stays on your phone.</strong> Nothing is sent to our servers or to third parties.</li>
-<li><strong>No ads, analytics or tracking.</strong></li>
-<li>You can delete your data at any time.</li>
+<li><strong>No account needed.</strong> Your tracking data (medicines, water, logs) stays on your phone.</li>
+<li><strong>Optional account:</strong> if you sign in with Google or with e-mail and password, all your app data (including health data) is backed up to Google Firebase (Frankfurt, EU) so it comes back when you change phones. You can delete the account and the cloud data from within the app.</li>
+<li><strong>The free version shows ads</strong> (Google AdMob). AquaMed Plus subscribers see no ads.</li>
+<li><strong>If you use family/caregiver pairing</strong>, your medication plan and dose status are sent to Google Firebase servers (Frankfurt, EU) so the person you paired with can see them. If you use neither pairing nor the optional account, no health information leaves your phone.</li>
+<li><strong>Crash reports:</strong> if the app crashes, Firebase Crashlytics receives the error message and technical information; your medication, measurement and water data are not sent.</li>
+<li><strong>Health data (Turkish KVKK art. 6):</strong> medication, measurement and water records are special-category personal data, processed only to provide the app's functions, with your explicit consent (see "Legal basis and your rights" below).</li>
+<li>You can delete the data on your phone at any time; pairing data is deleted by removing the pairing or by e-mailing us.</li>
 </ul>
 <h2>What information is handled?</h2>
-<p>Only what you enter, stored only on your device:</p>
+<p>On your phone, only what you enter:</p>
 <ul>
-<li>Your name (for the in-app greeting)</li>
-<li>Weight and (optional) height — to suggest a daily water goal</li>
+<li>Your name, weight and (optional) height</li>
 <li>Water and drink logs</li>
-<li>Your medicines: name, dose, notes, times, schedule, stock, priority, (optional) photo of the package</li>
-<li>Records of doses taken or skipped</li>
-<li>Sleep hours, water goal, the fluid limit from your doctor (if you enter one)</li>
-<li>Your emergency contact's name and phone number (if you enter one)</li>
-<li>App preferences (language, theme, reminder settings)</li>
+<li>Your medicines (name, dose, notes, times, schedule, stock, priority, optional photo) and taken/skipped records</li>
+<li>Your measurement log (blood pressure, blood sugar, weight); it goes into your doctor report</li>
+<li>Sleep hours, water goal, your doctor's fluid limit, app preferences</li>
 </ul>
+<p><strong>Home screen widgets</strong> (Today, Water) only show this on-device data; they do not use the internet.</p>
+<h2>Ads (free version)</h2>
+<p>Ads are served by Google AdMob (banner, interstitial and optional rewarded ads). AdMob may process data such as the advertising ID, device and app information, ad interactions and approximate location (from the IP address) to show and measure ads and prevent fraud. On first launch a consent form (Google UMP) asks for your ad preferences; you can refuse personalised ads. You can change this later in Settings → Data &amp; privacy → "Ad preferences". You can reset or delete your advertising ID in phone settings. Your medication, dose and water data are <strong>never</strong> shared with the ad provider. Details: https://policies.google.com/technologies/ads</p>
+<h2>Subscription (AquaMed Plus)</h2>
+<p>Plus is a monthly (₺49.99) or yearly (₺349.99) subscription; the yearly plan includes a 7-day free trial. Payments go directly through Google Play Billing; we never see your card details. Subscription status is checked on your phone by reading it from Google Play; your purchase information is not sent to our servers or to any other intermediary service. You can cancel any time in Google Play → Subscriptions; Plus then continues until the end of the period you paid for.</p>
+<h2>Family / caregiver pairing (optional)</h2>
+<p>There are two roles: the <strong>followed person</strong> (who takes the medicines) and the <strong>caregiver</strong> (who follows). Pairing works as long as either side has AquaMed Plus; if neither does, the pairing is paused (not deleted). Pairing uses a one-time 8-digit code created by the followed person and valid for 10 minutes. You can share the code through an invite link, for example on WhatsApp; you send the link yourself.</p>
+<ul>
+<li><strong>Anonymous ID:</strong> the first time you open Settings → "Caregivers", a random, anonymous ID is created for you in Google Firebase. No e-mail, phone number or password is asked.</li>
+<li><strong>Sent to the server</strong> (Google Firebase Cloud Firestore, location europe-west3 Frankfurt):</li>
+<li>Your name — the name you entered in the app (the followed person's and the caregiver's names are shown to the other side)</li>
+<li>For the followed person: medicine name and dose, scheduled dose times for 8 days from today, whether each dose was taken, skipped or late, and when</li>
+<li>If the followed person turns it on: a daily water summary (today's amount and goal)</li>
+<li>Both sides' device notification tokens (Expo push tokens), kept in the pairing record so alerts can be delivered</li>
+<li>Marks the caregiver makes on the followed person's behalf ("taken", "skipped", "add water"): these commands stay on the server only temporarily and are deleted once the followed person's phone applies them</li>
+<li>A nickname the caregiver gives the followed person (e.g. "Mum") stays on the caregiver's phone only and is not uploaded.</li>
+<li>The pairing-code record: the followed person's anonymous ID and name, the code's expiry and the anonymous ID of the caregiver who used it</li>
+<li><strong>Caregiver marks:</strong> a caregiver can mark a dose as taken or skipped, or add water, on the followed person's behalf; this is recorded in the followed person's logs.</li>
+<li><strong>Measurements are not shared:</strong> your blood pressure, blood sugar and weight measurements are not shared with your caregiver.</li>
+<li><strong>Notifications:</strong> when a dose is taken, skipped or late, the followed person's phone sends the alert directly to Expo's push service (exp.host), which delivers it to the caregiver's phone through Google Firebase Cloud Messaging. The alert text contains the name, medicine name, dose and time.</li>
+<li><strong>Who can see it:</strong> security rules allow only the two people in a pairing to read its data. A person can have at most 3 caregivers.</li>
+<li><strong>How long it is kept:</strong> shared data stays on the server until the pairing is removed.</li>
+</ul>
+<h2>Account and cloud backup (optional)</h2>
+<p>You can sign in from Settings → "Account &amp; backup". If you don't sign in, nothing in this section is processed.</p>
+<ul>
+<li><strong>Account data</strong> (Google Firebase Authentication): your e-mail address; if you signed up with e-mail, your password (stored one-way hashed by Firebase; we cannot see it); if you used Google, your Google account ID and e-mail address. Firebase also keeps the account's creation and last sign-in time.</li>
+<li><strong>Cloud backup</strong> (Google Firebase Cloud Firestore, location: europe-west3 Frankfurt): a copy of all AquaMed data on your phone — your name, weight/height, medicines (name, dose, notes, times, stock), taken/skipped logs, water logs, measurement log (blood pressure, blood sugar, weight), goals and limits, settings. This includes <strong>health data</strong>. The backup also records its time, the device type/model (e.g. "android · Pixel 8") and the app version. <strong>Medicine photos are not backed up</strong>; they stay on the phone.</li>
+<li><strong>When:</strong> while signed in, automatically about 5 minutes after your data changes and at least once a day; also with "Back up now".</li>
+<li><strong>Who can see it:</strong> security rules allow only your own account to read or delete the backup. It is not used for ads, not sold and not shared.</li>
+<li><strong>How long:</strong> until you delete the account. Signing out does not delete the cloud backup.</li>
+<li><strong>Pairings:</strong> when you sign in, your pairings are tied to your account and continue on another phone signed in to the same account.</li>
+</ul>
+<h2>Crash reports (Firebase Crashlytics)</h2>
+<p>If the app closes unexpectedly, Google Firebase Crashlytics receives the error message, the stack trace (where in the code it failed), device information (model, Android version, app version) and a random installation ID. Your medication, measurement, water or personal records are not put in these reports. The purpose is to find and fix bugs.</p>
 <h2>Permissions and why</h2>
 <ul>
-<li><strong>Notifications:</strong> to show medication and water reminders.</li>
-<li><strong>Alarms &amp; reminders (Android):</strong> so medication reminders arrive on time.</li>
-<li><strong>Run at startup:</strong> so reminders survive a phone restart.</li>
-<li><strong>Camera / Photos (optional):</strong> only when you choose to add a photo of a medicine package. The photo is copied into the app's own folder on your device.</li>
-<li><strong>Vibration:</strong> for haptic feedback and notifications.</li>
+<li><strong>Notifications:</strong> medication and water reminders; caregiver alerts if pairing is on.</li>
+<li><strong>Alarms &amp; reminders (Android):</strong> so reminders arrive on time.</li>
+<li><strong>Run at startup:</strong> so reminders survive a restart.</li>
+<li><strong>Camera / Photos (optional):</strong> to add a photo of a medicine package; it stays on the device.</li>
+<li><strong>Internet:</strong> ads, Google Play purchases, crash reports and (if you use them) pairing, account and cloud backup.</li>
+<li><strong>Vibration:</strong> haptic feedback and notifications.</li>
 </ul>
-<h2>Is information shared?</h2>
-<p>No. The app does not send any personal data over the internet. The following happen <strong>only when you choose to</strong>:</p>
+<h2>Sharing you start</h2>
 <ul>
-<li><strong>Tell my contact:</strong> when a dose is late and you tap the button, your phone's SMS or WhatsApp app opens with a ready message. You send it; the app never sends messages by itself.</li>
-<li><strong>Share weekly summary / export report (PDF, CSV):</strong> shared with the app you pick (e-mail, messaging, etc.).</li>
-<li><strong>Back up:</strong> all your data is written to a single file and saved wherever you choose (e.g. Google Drive, e-mail). Where you keep that file is up to you.</li>
+<li><strong>Invite link:</strong> you send the pairing code via WhatsApp etc. yourself.</li>
+<li><strong>Weekly summary, PDF/CSV report (including the measurement log), backup file:</strong> you send them to the app you choose.</li>
 </ul>
-<p>The privacy policies of the apps used for these actions (WhatsApp, e-mail, Drive, etc.) apply to them.</p>
+<h2>Legal basis and your rights (Turkish KVKK / GDPR)</h2>
+<p>Data controller: zepul — <a href="mailto:dalezepul@gmail.com.">dalezepul@gmail.com.</a> Your medication, measurement and water records are <strong>special-category personal data (health data)</strong> under Article 6 of Turkish Law No. 6698 (KVKK) and Article 9 GDPR. They are processed only to provide the app's functions (reminders, backup, pairing) and on the basis of your <strong>explicit consent</strong>, which you give by starting to use the relevant feature (account, cloud backup, pairing) and can withdraw by stopping it and deleting the data. Data that stays on your phone never reaches us. Data may be transferred abroad (Google, Frankfurt and other Google regions; Expo notifications) on the basis of your explicit consent. You may ask whether your data is processed, request information, correction, deletion, or object, by e-mailing <a href="mailto:dalezepul@gmail.com">dalezepul@gmail.com</a>; we reply within 30 days. You may also complain to the Turkish KVKK Board or your local supervisory authority.</p>
 <h2>Deleting your data</h2>
 <ul>
-<li>Settings → "Delete all my data" permanently removes everything at once.</li>
-<li>Uninstalling the app also deletes all of its data from your phone.</li>
-<li>Individual water and dose records can be deleted in "History" inside the app.</li>
-<li>Backup files you created are yours to delete.</li>
+<li><strong>Data on your phone:</strong> Settings → Data &amp; privacy → "Delete all my data" removes all AquaMed data, medicine photos and scheduled reminders from the phone. Uninstalling the app also removes the data on the phone.</li>
+<li><strong>Pairing data:</strong> these actions do <strong>not</strong> delete pairing data on the server. To delete it, first remove each pairing in Settings → Caregivers ("Remove pairing"). Either side can remove a pairing; the pairing record, the shared dose plan, water summary and dose events are then deleted from the server.</li>
+<li><strong>What remains:</strong> creating a new pairing code deletes the previous code's record, but the record of your most recent code (which contains an anonymous ID and a name) and your anonymous Firebase ID itself are not deleted from within the app. You can ask us by e-mail to delete these, and any pairing data left behind if you uninstalled the app without removing the pairing. Please include your name and the name of the person you were paired with so we can find the records.</li>
+<li><strong>Account and cloud backup:</strong> Settings → Account &amp; backup → "Delete account and cloud data" permanently deletes the cloud backup, your pairings and your account (data on the phone stays; remove it with "Delete all my data"). If you can't use the app, e-mail <a href="mailto:dalezepul@gmail.com">dalezepul@gmail.com</a> from your account's address with the subject "Account deletion"; we delete the account and cloud data within 30 days. Details page: https://dalezepul.github.io/aquamed-gizlilik/en/account-deletion/</li>
+<li>For ad, Google Play purchase and Crashlytics data, Google's own deletion processes apply.</li>
 </ul>
+<h2>Security</h2>
+<p>All connections between the app and Firebase, Expo, AdMob and Google Play are encrypted (HTTPS/TLS).</p>
 <h2>Children</h2>
-<p>The app is not intended for people under 18.</p>
+<p>The app is not intended for people under 18; parent pairing is for following an adult user (e.g. an elderly parent), not a child.</p>
 <h2>Medical disclaimer</h2>
-<p>AquaMed is a reminder tool and does not give medical advice, diagnosis or treatment. The interaction check covers only a limited set of known interactions; no warning does not mean medicines are safe together. Talk to your doctor or pharmacist about every decision regarding your medicines.</p>
+<p>AquaMed is a reminder tool and does not give medical advice, diagnosis or treatment. The interaction check is limited; no warning does not mean medicines are safe together. Ask your doctor or pharmacist.</p>
 <h2>Changes</h2>
-<p>If this policy changes, the current version is published on this page with a new "Last updated" date.</p>
+<p>If this policy changes, the current version is published on this page with a new date.</p>
 <h2>Contact</h2>
-<p>Questions: <a href="mailto:dalezepul@gmail.com">dalezepul@gmail.com</a></p>
+<p><a href="mailto:dalezepul@gmail.com">dalezepul@gmail.com</a></p>
 </main>
 </body>
 </html>
